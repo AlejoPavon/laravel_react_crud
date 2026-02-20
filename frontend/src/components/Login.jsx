@@ -13,7 +13,7 @@ const Login = () => {
     
     setTimeout(() => {
       setIsLoading(false);
-      alert('¡Bienvenido desarrollador!');
+      alert('¡Logueado!');
     }, 2000);
   };
 
