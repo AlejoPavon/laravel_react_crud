@@ -26,22 +26,24 @@ The project follows a **Separation of Concerns (SoC)** approach:
 
 ```text
 .
-├── backend/                  # Laravel API (REST)
+├── backend/                   # REST API built with Laravel
 │   ├── app/
-│   │   ├── Http/Controllers  # Controllers (CRUD logic)
-│   │   ├── Models/           # Eloquent Models
-│   │   └── Requests/         # Form Request Validations (if applicable)
+│   │   ├── Http/Controllers/  # Controllers (CRUD logic and endpoints)
+│   │   ├── Models/            # Eloquent models
+│   │   └── Requests/          # Form Request validations
 │   ├── database/
-│   │   ├── migrations/       # Database schema
-│   │   └── seeders/          # Test data (optional)
+│   │   ├── migrations/        # Database migrations (schema)
+│   │   └── seeders/           # Seeders for test/demo data
 │   ├── routes/
-│   │   └── api.php           # API Endpoints
-│   └── .env.example          # Environment variables template
+│   │   └── api.php            # API route definitions
+│   ├── .env.example           # Environment variables template
+│   
 │
-└── frontend/                 # React (Vite)
+└── frontend/                  # Frontend built with React (Vite)
     ├── src/
-    │   ├── components/       # UI components
-    │   ├── pages/            # Views / Screens
-    │   ├── services/         # API calls (fetch/axios)
-    │   └── hooks/            # Custom hooks (if any)
-    └── public/               # Static assets
+    │   ├── components/        # Reusable UI components
+    │   ├── pages/             # Application views/screens
+    │   ├── services/          # API services (fetch/axios)
+    │   ├── hooks/             # Custom hooks
+    │   └── main.jsx           # React entry point
+    ├── public/                # Static assets
