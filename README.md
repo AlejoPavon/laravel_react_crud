@@ -46,4 +46,13 @@ The project follows a **Separation of Concerns (SoC)** approach:
     │   ├── services/          # API services (fetch/axios)
     │   ├── hooks/             # Custom hooks
     │   └── main.jsx           # React entry point
-    ├── public/                # Static assets
+    ├── public/                # Static assets 
+```
+
+## Preview
+
+### Login Page
+![Login Screen](./images/login.png)
+
+### Dashboard
+![Dashboard Screen](./images/dashboard.png)
