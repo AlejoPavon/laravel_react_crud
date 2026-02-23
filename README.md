@@ -26,9 +26,24 @@ The project follows a **Separation of Concerns (SoC)** approach:
 
 ```text
 .
-├── backend/           # Laravel Framework (API)
-│   ├── app/Models     # Eloquent Models
-│   └── routes/api.php # API Endpoints
-└── frontend/          # React Application (Vite)
-    ├── src/           # Components, Hooks, and Logic
-    └── public/        # Static Assets
+├── backend/                   # REST API built with Laravel
+│   ├── app/
+│   │   ├── Http/Controllers/  # Controllers (CRUD logic and endpoints)
+│   │   ├── Models/            # Eloquent models
+│   │   └── Requests/          # Form Request validations
+│   ├── database/
+│   │   ├── migrations/        # Database migrations (schema)
+│   │   └── seeders/           # Seeders for test/demo data
+│   ├── routes/
+│   │   └── api.php            # API route definitions
+│   ├── .env.example           # Environment variables template
+│   
+│
+└── frontend/                  # Frontend built with React (Vite)
+    ├── src/
+    │   ├── components/        # Reusable UI components
+    │   ├── pages/             # Application views/screens
+    │   ├── services/          # API services (fetch/axios)
+    │   ├── hooks/             # Custom hooks
+    │   └── main.jsx           # React entry point
+    ├── public/                # Static assets
