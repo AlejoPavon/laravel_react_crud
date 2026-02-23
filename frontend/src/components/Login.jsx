@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -6,15 +8,25 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
+  const { login } = useAuth();
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setError('');
+
+    const result = await login(email, password);
     
-    setTimeout(() => {
-      setIsLoading(false);
-      alert('¡Logueado!');
-    }, 2000);
+    if (result.success) {
+      navigate('/dashboard');
+    } else {
+      setError(result.error || 'Error al iniciar sesión');
+    }
+    
+    setIsLoading(false);
   };
 
   return (
@@ -54,6 +66,13 @@ const Login = () => {
                 Gestor de desarrolladores
               </p>
             </div>
+
+            {/* Mensaje de error */}
+            {error && (
+              <div className="mb-4 p-3 bg-red-50 border border-red-200 text-red-600 rounded-lg text-sm">
+                {error}
+              </div>
+            )}
 
             {/* Formulario */}
             <form onSubmit={handleSubmit} className="space-y-5">
@@ -145,7 +164,7 @@ const Login = () => {
             {/* Registro */}
             <p className="text-center mt-6 text-gray-600">
               ¿No tienes una cuenta?{' '}
-              <a href="#" className="text-blue-600 hover:text-blue-800 font-medium">
+              <a href="/register" className="text-blue-600 hover:text-blue-800 font-medium">
                 Regístrate como developer
               </a>
             </p>
